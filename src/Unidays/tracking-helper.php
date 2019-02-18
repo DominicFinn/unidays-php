@@ -84,21 +84,16 @@ class TrackingHelper
             . '&TransactionId=' . urlencode($this->directTrackingDetails->transactionId)
             . '&MemberId=' . ($this->directTrackingDetails->memberId ? urlencode($this->directTrackingDetails->memberId) : '')
             . '&Currency=' . urlencode($this->directTrackingDetails->currency)
-            . '&OrderTotal=' . ($this->directTrackingDetails->orderTotal ? $this->url_encode_number($this->directTrackingDetails->orderTotal) : '')
-            . '&ItemsUNiDAYSDiscount=' . ($this->directTrackingDetails->itemsUnidaysDiscount ? $this->url_encode_number($this->directTrackingDetails->itemsUnidaysDiscount) : '')
+            . '&OrderTotal=' . ($this->directTrackingDetails->orderTotal ? urlencode($this->directTrackingDetails->orderTotal) : '')
+            . '&ItemsUNiDAYSDiscount=' . ($this->directTrackingDetails->itemsUnidaysDiscount ? urlencode($this->directTrackingDetails->itemsUnidaysDiscount) : '')
             . '&Code=' . ($this->directTrackingDetails->code ? urlencode($this->directTrackingDetails->code) : '')
-            . '&ItemsTax=' . ($this->directTrackingDetails->itemsTax ? $this->url_encode_number($this->directTrackingDetails->itemsTax) : '')
-            . '&ShippingGross=' . ($this->directTrackingDetails->shippingGross ? $this->url_encode_number($this->directTrackingDetails->shippingGross) : '')
-            . '&ShippingDiscount=' . ($this->directTrackingDetails->shippingDiscount ? $this->url_encode_number($this->directTrackingDetails->shippingDiscount) : '')
-            . '&ItemsGross=' . ($this->directTrackingDetails->itemsGross ? $this->url_encode_number($this->directTrackingDetails->itemsGross) : '')
-            . '&ItemsOtherDiscount=' . ($this->directTrackingDetails->itemsOtherDiscount ? $this->url_encode_number($this->directTrackingDetails->itemsOtherDiscount) : '')
-            . '&UNiDAYSDiscountPercentage=' . ($this->directTrackingDetails->unidaysDiscountPercentage ? $this->url_encode_number($this->directTrackingDetails->unidaysDiscountPercentage) : '')
+            . '&ItemsTax=' . ($this->directTrackingDetails->itemsTax ? urlencode($this->directTrackingDetails->itemsTax) : '')
+            . '&ShippingGross=' . ($this->directTrackingDetails->shippingGross ? urlencode($this->directTrackingDetails->shippingGross) : '')
+            . '&ShippingDiscount=' . ($this->directTrackingDetails->shippingDiscount ? urlencode($this->directTrackingDetails->shippingDiscount) : '')
+            . '&ItemsGross=' . ($this->directTrackingDetails->itemsGross ? urlencode($this->directTrackingDetails->itemsGross) : '')
+            . '&ItemsOtherDiscount=' . ($this->directTrackingDetails->itemsOtherDiscount ? urlencode($this->directTrackingDetails->itemsOtherDiscount) : '')
+            . '&UNiDAYSDiscountPercentage=' . ($this->directTrackingDetails->unidaysDiscountPercentage ? urlencode($this->directTrackingDetails->unidaysDiscountPercentage) : '')
             . '&NewCustomer=' . ($this->directTrackingDetails->newCustomer ? $this->parse_boolean($this->directTrackingDetails->newCustomer) : '');
-    }
-
-    private function url_encode_number($number)
-    {
-        return urlencode(number_format($number, 2, '.', ','));
     }
 
     private function parse_boolean($bool)
